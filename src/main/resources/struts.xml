@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <constant name="struts.devMode" value="true" />
+
+  <package name="sample-app" extends="struts-default">
+
+    <global-results>
+      <result name="permissionDenied">/jsp/gen/permissionDenied.jsp</result>
+      <result name="unhandledException">/jsp/gen/error.jsp</result>
+    </global-results>
+
+    <global-exception-mappings>
+      <exception-mapping exception="java.lang.Exception" result="unhandledException" />
+    </global-exception-mappings>
+
+    <!-- Used to point to the start page of the application -->
+    <action name="Index">
+      <result name="success" type="redirectAction">ViewPeople</result>
+    </action>
+    
+    <action name="Home">
+      <result name="success" type="redirectAction">ViewPeople</result>
+    </action>
+    
+    <action name="ViewPeople" class="sampleapp.actions.ViewPeopleAction">
+      <result name="success">/jsp/viewPeople.jsp</result>
+    </action>
+    
+    <action name="UpdatePerson" class="sampleapp.actions.UpdatePersonAction">
+      <result name="success">/jsp/gen/redirect.jsp</result>
+    </action>
+    
+  </package>
+
+</struts>

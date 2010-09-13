@@ -1,0 +1,66 @@
+This is a sample application which uses the EasyApp transaction utilties.
+
+==================================
+Requirements:
+==================================
+
+1. Unix-like operating system (I think) with Java 6 and Tomcat 6 installed.  It may
+work with other OSes and older versions, but I do not claim this.
+
+2. To build the app you need Apache Maven 2 installed and have the primary open-source
+repositories configured in your settings.xml (or reference a proxy that does).
+
+3. This application depends on the EasyApp library (developed at the BBL at the
+University of Pennsylvania).  I know it's sloppy but it's currently using version
+1.2-SNAPSHOT.  Thus, you must download and deploy this jar to your local repo so it
+can be referenced via the dependency:
+
+<dependency>
+  <groupId>edu.upenn.bbl.common</groupId>
+  <artifactId>bblcommon</artifactId>
+  <version>1.2-SNAPSHOT</version>
+</dependency>
+
+4. To use the app, you should have a database installed somewhere and have an
+account.  It's only been tested against Oracle, but I see no reason it shouldn't work
+against MySQL or Postgres as long as you have a JDBC driver for them and know how to
+create a connection URL.
+
+==================================
+To build the application:
+==================================
+
+1. Open ./src/main/resources/META-INF/persistence.xml
+
+2. Modify the javax.persistence.jdbc properties to reflect a database for which
+you have write permission
+
+3. Temporarily uncomment the 'hibernate.hbm2ddl.auto' property to allow JPA to
+generate the "PERSON" table in your database/schema.  If you don't want to do this,
+execute the following SQL (or equivalent for your DB) to create the required table:
+
+CREATE TABLE "PERSON" (
+  "ID" NUMBER(19,0) NOT NULL ENABLE,
+  "FIRST_NAME" VARCHAR2(255 CHAR),
+  "LAST_NAME"  VARCHAR2(255 CHAR),
+  "BIRTH_DATE" DATE,
+  "SEX"        VARCHAR2(255 CHAR),
+  "SUFFIX"     VARCHAR2(255 CHAR),
+  PRIMARY KEY ("ID")
+)
+
+4. Package the web application into a WAR file with "mvn package".
+
+==================================
+To deploy the application:
+==================================
+
+1. Copy target/sampleapp.war to the webapps directory of your Tomcat 6 install.
+
+2. Make sure whichever JDBC driver class you put in persistence.xml is in a JAR
+file in the global lib directory of Tomcat.
+
+3. Start Tomcat (or wait for auto-deploy).
+
+4. Go to http://<your_server/sampleapp and watch the magic (hopefully there is
+some).
