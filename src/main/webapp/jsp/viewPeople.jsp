@@ -14,7 +14,7 @@
     <script src="inc/jquery-ui/js/jquery-ui-1.8.4.custom.min.js" type="text/javascript"> /*-*/ </script>
     <script type="text/javascript">
       $(document).ready(function(){
-        $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+        $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd', changeYear: true, yearRange: '1940:2030', gotoCurrent: true });
       });
       function deletePerson(id) {
           var formId = 'form' + id;

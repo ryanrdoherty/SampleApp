@@ -23,14 +23,15 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import edu.upenn.bbl.common.enums.NameSuffix;
 import edu.upenn.bbl.common.enums.Sex;
 import edu.upenn.bbl.common.jpa.Identifiable;
-import edu.upenn.bbl.common.util.DataValidator;
+import edu.upenn.bbl.common.util.DataFormats;
+import edu.upenn.bbl.common.util.Name;
 
 @Entity
 @Table(name="PERSON")
 @NamedQueries({
 	@NamedQuery(name=Person.GET_ALL, query="select p from Person p order by p.id asc")
 })
-public class Person implements Serializable, Identifiable {
+public class Person implements Serializable, Identifiable, Name {
 
 	private static final long serialVersionUID = 20100503L;
 	
@@ -59,14 +60,22 @@ public class Person implements Serializable, Identifiable {
 	}
 	
 	@Column(name="FIRST_NAME")
+	@Override
 	public String getFirstName() {
 		return _firstName;
 	}
 	public void setFirstName(String firstName) {
 		_firstName = firstName;
 	}
+	
+	@Transient
+	@Override
+	public String getMiddleName() {
+		return null;
+	}
 
 	@Column(name="LAST_NAME")
+	@Override
 	public String getLastName() {
 		return _lastName;
 	}
@@ -76,6 +85,7 @@ public class Person implements Serializable, Identifiable {
 
 	@Column(name="SUFFIX")
 	@Enumerated(EnumType.STRING)
+	@Override
 	public NameSuffix getSuffix() {
 		return _suffix;
 	}
@@ -92,7 +102,7 @@ public class Person implements Serializable, Identifiable {
 		_birthDate = birthDate;
 	}
 	public void setBirthDate(String birthDate) {
-		_birthDate = DataValidator.convertDate(birthDate);
+		_birthDate = DataFormats.convertDate(birthDate);
 	}
 
 	@Column(name="SEX")
@@ -115,9 +125,8 @@ public class Person implements Serializable, Identifiable {
 	}
 	
 	@Transient
+	@Override
 	public String getFullName() {
-		return ((_firstName == null ? "" : _firstName) + " " +
-				(_lastName == null ? "" : _lastName) + " " +
-				(_suffix == null ? "" : _suffix.getDescription())).trim();
+		return DataFormats.getFullName(this);
 	}
 }
