@@ -25,6 +25,7 @@ import edu.upenn.bbl.common.enums.Sex;
 import edu.upenn.bbl.common.jpa.Identifiable;
 import edu.upenn.bbl.common.util.DataFormats;
 import edu.upenn.bbl.common.util.Name;
+import edu.upenn.bbl.common.web.struts.DateTypeConverter;
 
 @Entity
 @Table(name="PERSON")
@@ -102,7 +103,7 @@ public class Person implements Serializable, Identifiable, Name {
 		_birthDate = birthDate;
 	}
 	public void setBirthDate(String birthDate) {
-		_birthDate = DataFormats.convertDate(birthDate);
+		_birthDate = (Date)new DateTypeConverter().convertFromString(null, new String[]{ birthDate }, Date.class);
 	}
 
 	@Column(name="SEX")

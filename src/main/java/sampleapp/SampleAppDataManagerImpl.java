@@ -23,7 +23,7 @@ public class SampleAppDataManagerImpl extends JpaDataManager implements SampleAp
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Person> getPeople() {
-		return (List<Person>)getEm().createNamedQuery(Person.GET_ALL).getResultList();
+		return getEm().createNamedQuery(Person.GET_ALL).getResultList();
 	}
 	
 }

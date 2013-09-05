@@ -24,6 +24,7 @@ public class UpdatePersonAction extends SampleAppAction {
 		// save or delete person
 		LOG.info("Performing operation " + _operation + " on person: " + _person);
 		new SampleAppDbWorker() {
+			@Override
 			public void doDbTasks(SampleAppDataManager dataMgr) {
 				String displayName = (StringUtils.isEmpty(_person.getFullName()) ? "'No-name' user" : _person.getFullName());
 				switch (_operation) {
@@ -57,6 +58,7 @@ public class UpdatePersonAction extends SampleAppAction {
 		return _person;
 	}
 	
+	@Override
 	public String getRequestUrl() {
 		return "ViewPeople";
 	}

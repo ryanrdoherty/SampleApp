@@ -21,7 +21,7 @@ public class ViewPeopleAction extends SampleAppAction {
 	
 	@Override
 	public String doWork() throws Exception {
-		new SampleAppDbWorker() { public void doDbTasks(SampleAppDataManager dataMgr) {
+		new SampleAppDbWorker() { @Override public void doDbTasks(SampleAppDataManager dataMgr) {
 			_people = dataMgr.getPeople();
 		}}.doWork();
 		
