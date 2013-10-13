@@ -4,9 +4,9 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sampleapp.SampleAppDataManager;
-import sampleapp.SampleAppDbWorker;
-import sampleapp.entities.Person;
+import sampleapp.db.SampleAppDataManager;
+import sampleapp.db.SampleAppDbWorker;
+import sampleapp.db.entities.Person;
 import edu.upenn.bbl.common.util.EnumUtil;
 import edu.upenn.bbl.common.web.util.ActionOperation;
 

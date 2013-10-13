@@ -2,31 +2,20 @@
 <!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-  
-  <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
-    <layout class="org.apache.log4j.PatternLayout"> 
-      <param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/> 
-    </layout> 
-  </appender>
- 
-  <!-- specify the logging level for loggers from other libraries -->
-  <!--
-  <logger name="com.opensymphony">
-    <level value="DEBUG" />
-  </logger>
 
-  <logger name="org.apache.struts2">
-    <level value="DEBUG" />
-  </logger>
-  -->
+  <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/>
+    </layout>
+  </appender>
+
+  <category name="org.apache.struts2"><priority value="warn"/></category>
+  <category name="org.hibernate"><priority value="warn"/></category>
+
   <!-- for all other loggers log only info and above log messages -->
   <root>
-    <priority value="INFO"/> 
-    <appender-ref ref="STDOUT" /> 
+    <priority value="info"/>
+    <appender-ref ref="stdout"/>
   </root>
-  
-  <category name="org.apache.struts2.util.TextProviderHelper">
-    <priority value="error"/>
-  </category>
-  
-</log4j:configuration> 
+
+</log4j:configuration>

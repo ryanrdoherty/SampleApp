@@ -5,9 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sampleapp.SampleAppDataManager;
-import sampleapp.SampleAppDbWorker;
-import sampleapp.entities.Person;
+import sampleapp.db.SampleAppDataManager;
+import sampleapp.db.SampleAppDbWorker;
+import sampleapp.db.entities.Person;
 
 public class ViewPeopleAction extends SampleAppAction {
 
