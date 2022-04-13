@@ -1,6 +1,6 @@
 package sampleapp.db;
 
-import edu.upenn.bbl.common.jpa.DbWorker;
+import org.conical.common.bbl.jpa.DbWorker;
 
 public abstract class SampleAppDbWorker extends DbWorker<SampleAppDataManager>{
 

@@ -1,20 +1,20 @@
 package sampleapp.actions;
 
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import sampleapp.db.SampleAppDataManager;
 import sampleapp.db.SampleAppDbWorker;
 import sampleapp.db.entities.Person;
-import edu.upenn.bbl.common.util.EnumUtil;
-import edu.upenn.bbl.common.web.util.ActionOperation;
+import org.conical.common.bbl.util.EnumUtil;
+import org.conical.common.bbl.web.util.ActionOperation;
 
 public class UpdatePersonAction extends SampleAppAction {
 
 	private static final long serialVersionUID = 20100901L;
 
-	private static final Logger LOG = LoggerFactory.getLogger(UpdatePersonAction.class.getName());
+	private static final Logger LOG = LogManager.getLogger(UpdatePersonAction.class);
 	
 	private ActionOperation _operation;
 	private Person _person;

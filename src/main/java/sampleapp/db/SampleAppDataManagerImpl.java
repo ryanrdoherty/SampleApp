@@ -6,7 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import sampleapp.db.entities.Person;
-import edu.upenn.bbl.common.jpa.JpaDataManager;
+import org.conical.common.bbl.jpa.JpaDataManager;
 
 public class SampleAppDataManagerImpl extends JpaDataManager implements SampleAppDataManager {
 

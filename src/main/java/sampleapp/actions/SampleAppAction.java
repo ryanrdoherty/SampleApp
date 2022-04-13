@@ -1,6 +1,6 @@
 package sampleapp.actions;
 
-import edu.upenn.bbl.common.web.struts.actions.BaseAction;
+import org.conical.common.bbl.web.struts.actions.BaseAction;
 
 public class SampleAppAction extends BaseAction {
 

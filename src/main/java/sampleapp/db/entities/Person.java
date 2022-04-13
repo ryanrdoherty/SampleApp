@@ -17,15 +17,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
-import edu.upenn.bbl.common.enums.NameSuffix;
-import edu.upenn.bbl.common.enums.Sex;
-import edu.upenn.bbl.common.jpa.Identifiable;
-import edu.upenn.bbl.common.util.DataFormats;
-import edu.upenn.bbl.common.util.Name;
-import edu.upenn.bbl.common.web.struts.DateTypeConverter;
+import org.conical.common.bbl.enums.NameSuffix;
+import org.conical.common.bbl.enums.Sex;
+import org.conical.common.bbl.jpa.Identifiable;
+import org.conical.common.bbl.util.DataFormats;
+import org.conical.common.bbl.util.Name;
+import org.conical.common.bbl.web.struts.DateTypeConverter;
 
 @Entity
 @Table(name="PERSON")

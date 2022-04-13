@@ -2,8 +2,8 @@ package sampleapp.actions;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import sampleapp.db.SampleAppDataManager;
 import sampleapp.db.SampleAppDbWorker;
@@ -13,7 +13,7 @@ public class ViewPeopleAction extends SampleAppAction {
 
 	private static final long serialVersionUID = 20100901L;
 
-	public static final Logger LOG = LoggerFactory.getLogger(ViewPeopleAction.class.getName());
+	public static final Logger LOG = LogManager.getLogger(ViewPeopleAction.class);
 
 	public static final String VIEW_PERSON_MSG = "view.people.message.key";
 	

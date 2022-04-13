@@ -3,7 +3,7 @@ package sampleapp.db;
 import java.util.List;
 
 import sampleapp.db.entities.Person;
-import edu.upenn.bbl.common.jpa.DataManager;
+import org.conical.common.bbl.jpa.DataManager;
 
 public interface SampleAppDataManager extends DataManager {
 

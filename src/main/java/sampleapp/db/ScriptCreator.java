@@ -5,7 +5,7 @@ import java.util.List;
 
 import sampleapp.db.entities.Person;
 
-import edu.upenn.bbl.common.jpa.DdlScriptCreator;
+import org.conical.common.bbl.jpa.DdlScriptCreator;
 
 /**
  * SQL Creator for Tables according to JPA/Hibernate annotations.
